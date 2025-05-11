@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/main"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/set_daily_goals"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/stepsLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/daily_step_goal"
+        android:textSize="16sp"
+        android:paddingBottom="4dp" />
+    <EditText
+        android:id="@+id/stepsInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:inputType="number"
+        android:hint="Enter steps goal"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edit_text_background" />
+
+
+    <TextView
+        android:id="@+id/caloriesLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/daily_caloric_goal"
+        android:textSize="16sp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp" />
+    <EditText
+        android:id="@+id/caloriesInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Enter calories goal"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edit_text_background"/>
+
+
+    <TextView
+        android:id="@+id/activeTimeLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/daily_activity_time_goal"
+        android:textSize="16sp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp" />
+    <EditText
+        android:id="@+id/activeTimeInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:textColor="@android:color/black"
+        android:hint="Enter active time goal"
+        android:padding="8dp"
+        android:background="@drawable/edit_text_background" />
+
+
+    <Button
+        android:id="@+id/submitGoalsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Goals"
+        android:background="@color/purple_500"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
