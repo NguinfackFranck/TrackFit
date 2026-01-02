@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "663416669152",
+    "project_id": "trackfit-c2f1b",
+    "storage_bucket": "trackfit-c2f1b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663416669152:android:377e5e47070332db77e185",
+        "android_client_info": {
+          "package_name": "com.example.trackfit2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjI4qbk32mF_OfcRNacIxWByPuNyRaC1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

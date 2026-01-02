@@ -18,21 +18,22 @@ package com.example.trackfit2;
 
  import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+ import android.view.View;
+ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+ import com.google.firebase.auth.FirebaseAuth;
+
 /**
  * Main entry point activity that handles initial application routing.
  * Implements conditional navigation based on user's setup status.
  */
 public class MainActivity extends AppCompatActivity {
-    private Button startButton;
-    private PrefsHelper prefsHelper;
 
     /**
      * Initializes activity and determines navigation path.
@@ -49,13 +50,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        prefsHelper = new PrefsHelper(this);
+        PrefsHelper prefsHelper = new PrefsHelper(this);
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         // Check if user has completed initial setup
-        if (prefsHelper.isSetupComplete()) {
+        if (prefsHelper.isSetupComplete() && firebaseAuth.getCurrentUser() != null) {
             navigateToDashboard();
             return;
         }
-        setupWelcomeScreen();
+        if(!prefsHelper.isSetupComplete()){
+            setupWelcomeScreen();
+            return;
+        }
+        {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
     }
     /**
      * Configures the welcome screen UI components and event handlers.
@@ -64,15 +73,22 @@ public class MainActivity extends AppCompatActivity {
      * - Uses ViewCompat for backward compatibility
      */
     private void setupWelcomeScreen() {
-        startButton = findViewById(R.id.getStartedButton);
+        var registerButton = findViewById(R.id.registerButton);
+         var loginButton = findViewById(R.id.loginButton);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
         // Navigation to Register activity for start button
-        startButton.setOnClickListener(v -> {
+        registerButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            startActivity(intent);
+            finish();// Remove this activity from back stack
+        });
+        // Navigation to Login Activity
+        loginButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();// Remove this activity from back stack
         });

@@ -1,85 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:fillViewport="true"
+    android:background="#121212">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <EditText
-            android:id="@+id/Name_edit"
+        <!-- Header Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update your personal information"
+            android:textSize="14sp"
+            android:textColor="#B0B0B0"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Profile Picture Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="8dp"
+            android:backgroundTint="#FF6B9D">
+
+            <ImageView
+                android:id="@+id/profileImageEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Profile Picture"
+                android:src="@drawable/profile"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#40000000" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_menu_camera"
+                app:tint="#FFFFFF" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Name Input -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/full_name"
-            android:textColorHint="@android:color/black"
-            android:background="@drawable/edit_text_background"
-            android:inputType="textPersonName"/>
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#FF6B9D"
+            app:hintTextColor="#FF6B9D"
+            app:boxBackgroundColor="#1E1E1E"
+            app:startIconDrawable="@android:drawable/ic_menu_myplaces"
+            app:startIconTint="#FF6B9D">
 
-
-        <EditText
-            android:id="@+id/Age_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Age"
-            android:textColorHint="@android:color/black"
-            android:background="@drawable/edit_text_background"
-            android:inputType="number"/>
-
-        <EditText
-            android:id="@+id/Height_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/Hieght_input"
-            android:background="@drawable/edit_text_background"
-            android:inputType="number"/>
-
-        <EditText
-            android:id="@+id/Weight_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/weihgt"
-            android:textColorHint="@android:color/black"
-            android:background="@drawable/edit_text_background"
-            android:inputType="numberDecimal"/>
-
-        <RadioGroup
-            android:id="@+id/genderGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/rbMale"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Name_edit"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/male"/>
+                android:hint="@string/full_name"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#808080" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <RadioButton
-                android:id="@+id/rbFemale"
-                android:layout_width="wrap_content"
+        <!-- Age Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#FFA726"
+            app:hintTextColor="#FFA726"
+            app:boxBackgroundColor="#1E1E1E"
+            app:startIconDrawable="@android:drawable/ic_menu_today"
+            app:startIconTint="#FFA726">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Age_edit"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/female"/>
+                android:hint="Age"
+                android:inputType="number"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#808080" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <RadioButton
-                android:id="@+id/rbOther"
-                android:layout_width="wrap_content"
+        <!-- Height Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#66D9EF"
+            app:hintTextColor="#66D9EF"
+            app:boxBackgroundColor="#1E1E1E"
+            app:suffixText="cm"
+            app:suffixTextColor="#66D9EF"
+            app:startIconDrawable="@android:drawable/arrow_up_float"
+            app:startIconTint="#66D9EF">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Height_edit"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/other"/>
-        </RadioGroup>
+                android:hint="@string/Hieght_input"
+                android:inputType="number"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#808080" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <!-- Weight Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#A78BFA"
+            app:hintTextColor="#A78BFA"
+            app:boxBackgroundColor="#1E1E1E"
+            app:suffixText="kg"
+            app:suffixTextColor="#A78BFA"
+            app:startIconDrawable="@android:drawable/arrow_down_float"
+            app:startIconTint="#A78BFA">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Weight_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/weihgt"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#808080" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Gender Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:backgroundTint="#1E1E1E">
+
+            <RadioGroup
+                android:id="@+id/genderGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/male"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    android:buttonTint="#66D9EF" />
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    android:buttonTint="#FF6B9D" />
+
+                <RadioButton
+                    android:id="@+id/rbOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/other"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    android:buttonTint="#A78BFA" />
+            </RadioGroup>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Save Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/save"/>
+            android:layout_height="60dp"
+            android:text="@string/save"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
+            app:backgroundTint="#FF6B9D"
+            android:textColor="#FFFFFF"
+            app:icon="@android:drawable/ic_menu_save"
+            app:iconTint="#FFFFFF"
+            app:iconGravity="textStart"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Logout Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/logout"
+            android:textSize="16sp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:cornerRadius="30dp"
+            app:strokeColor="#FFA726"
+            app:strokeWidth="2dp"
+            android:textColor="#FFA726"
+            app:icon="@android:drawable/ic_lock_power_off"
+            app:iconTint="#FFA726"
+            app:iconGravity="textStart"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Erase All Data Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEraseAll"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/erase_all_data"
+            android:textSize="16sp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:cornerRadius="30dp"
+            app:strokeColor="#FF5252"
+            app:strokeWidth="2dp"
+            android:textColor="#FF5252"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:iconTint="#FF5252"
+            app:iconGravity="textStart"
+            android:layout_marginBottom="24dp" />
+
     </LinearLayout>
 </ScrollView>

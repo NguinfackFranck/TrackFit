@@ -20,7 +20,6 @@
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -128,9 +127,16 @@ public class SetGoalsActivity extends AppCompatActivity {
             int calories = Integer.parseInt(caloriesInput.getText().toString().trim());
             int activeTime = Integer.parseInt(activeTimeInput.getText().toString().trim());
 
+            // 1️ Save locally
             dataBase.saveGoals(steps, calories, activeTime);
             showSuccess("Goals updated successfully");
-            navigateToSaveDailyData();
+
+            // 2️ Sync to Firebase (NEW)
+            FirebaseSyncService syncService = new FirebaseSyncService(this);
+            syncService.syncGoalsToFirestore();
+
+            // 3️ Continue
+            navigateToDashboard();
         } catch (NumberFormatException e) {
             showError("Invalid number format");
         }
@@ -144,8 +150,8 @@ public class SetGoalsActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
      // navigate to SaveDailyDataActivity
-    private void navigateToSaveDailyData() {
-        Intent intent = new Intent(this, SaveDailyDataActivity.class);
+    private void navigateToDashboard() {
+        Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
     }
 }

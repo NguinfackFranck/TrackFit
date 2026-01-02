@@ -128,7 +128,6 @@ public class DashboardActivity extends AppCompatActivity {
     private void setupButtonListeners() {
         Button historyButton = findViewById(R.id.historyButton);
         Button editProfileButton = findViewById(R.id.editProfileButton);
-        Button logoutButton = findViewById(R.id.logoutButton);
         Button saveDataButton = findViewById(R.id.saveDataButton);
         Button setDailyGoals= findViewById(R.id.setGoals);
         profileImage.setOnClickListener(v -> {
@@ -143,11 +142,7 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(new Intent(this, EditProfileActivity.class));
         });
 
-        logoutButton.setOnClickListener(v -> {
-            prefsHelper.clearUserData();
-            startActivity(new Intent(this, LogoutActivity.class));
-            finish();
-        });
+
         setDailyGoals.setOnClickListener(view -> {
             startActivity(new Intent(this, SetGoalsActivity.class));
         });

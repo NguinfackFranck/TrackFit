@@ -1,5 +1,5 @@
 /**MidnightResetService.java
- * MidnightResetService is a background Android service responsible for resetting daily fitness data at midnight.
+ * x
  * The service uses a Timer to schedule automatic resets, ensuring daily tracking consistency.
  * Author: Nguinfack Franck-styve
  */

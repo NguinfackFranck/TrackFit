@@ -126,6 +126,22 @@ public class FitnessDatabaseHelper extends SQLiteOpenHelper {
         db.insertWithOnConflict(TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_REPLACE);
         db.close();
     }/**
+     * Saves daily fitness data for a specific date.
+     * Used when restoring data from Firestore.
+     */
+    public void saveDailyData(String date, int steps, int calories, int activeTime) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_DATE, date);
+        values.put(COLUMN_STEPS, steps);
+        values.put(COLUMN_CALORIES, calories);
+        values.put(COLUMN_ACTIVE_TIME, activeTime);
+
+        db.insertWithOnConflict(TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_REPLACE);
+        db.close();
+    }
+    /**
      * Updates user fitness goals.
      *
      * @param stepsGoal Daily step goal

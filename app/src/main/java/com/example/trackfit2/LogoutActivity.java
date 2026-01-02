@@ -32,7 +32,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class LogoutActivity extends AppCompatActivity {
-Button logoutButton;
+Button logoutButton, cancelButton;
     /**
      * Initializes the activity and sets up UI components.
      *
@@ -45,17 +45,23 @@ Button logoutButton;
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_logout);
         logoutButton= findViewById(R.id.buttonLogout);
+        cancelButton= findViewById(R.id.buttonCancel);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        })// logout on click
-        ;logoutButton.setOnClickListener(new View.OnClickListener() {
+        });// logout on click
+        cancelButton.setOnClickListener(v ->
+                startActivity(new Intent(LogoutActivity.this, DashboardActivity.class)));
+
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showLogoutConfirmation();
             }
         });
+
     }
 // Confirmation of logout
     private void showLogoutConfirmation() {

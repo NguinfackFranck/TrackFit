@@ -1,115 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SaveDailyDataActivity">
+    android:background="#121212"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="44dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="   Insert your data for today"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dailyStepsInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/dailyStepsInput"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:hint="@string/steps"
-        android:textColorHint="@android:color/black"
-        android:textColor="@android:color/black"
-        android:inputType="number"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        app:layout_constraintBottom_toTopOf="@+id/daillyCaloriesInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/daily_progress"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="8dp"/>
 
-    <EditText
-        android:id="@+id/daillyCaloriesInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:hint="@string/daily_caloric_goal"
-        android:inputType="number"
-        android:textColorHint="@android:color/black"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/dailyActiveTimeInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dailyStepsInput" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log_your_activity_to_stay_on_track"
+            android:textSize="16sp"
+            android:textColor="#B0B0B0"
+            android:layout_marginBottom="24dp"/>
 
-    <EditText
-        android:id="@+id/dailyActiveTimeInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="76dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:hint="@string/active_min"
-        android:inputType="number"
-        android:textColorHint="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/saveDailyInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/daillyCaloriesInput" />
+        <!-- Input Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:backgroundTint="#1E1E1E"
+            android:layout_marginBottom="24dp">
 
-    <Button
-        android:id="@+id/saveDailyInput"
-        android:layout_width="112dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="282dp"
-        android:text="@string/save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dailyActiveTimeInput" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:text="@string/steps"
-        app:layout_constraintBottom_toBottomOf="@+id/dailyStepsInput"
-        app:layout_constraintStart_toEndOf="@+id/dailyStepsInput" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/steps_taken"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#FFA726"/>
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="kcal"
-        app:layout_constraintBottom_toBottomOf="@+id/daillyCaloriesInput"
-        app:layout_constraintStart_toEndOf="@+id/daillyCaloriesInput" />
+                <EditText
+                    android:id="@+id/dailyStepsInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/e_g_8000"
+                    android:inputType="number"
+                    android:background="@drawable/edit_text_rounded_bg"
+                    android:paddingLeft="12dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#808080"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="8dp"
-        android:text="min"
-        app:layout_constraintBottom_toBottomOf="@+id/dailyActiveTimeInput"
-        app:layout_constraintStart_toEndOf="@+id/dailyActiveTimeInput" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calories_burned_kcal"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#FF6B9D"/>
+
+                <EditText
+                    android:id="@+id/daillyCaloriesInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/e_g_450"
+                    android:inputType="number"
+                    android:background="@drawable/edit_text_rounded_bg"
+                    android:paddingLeft="12dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#808080"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/active_time_minutes"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#66D9EF"/>
+
+                <EditText
+                    android:id="@+id/dailyActiveTimeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/e_g_45"
+                    android:inputType="number"
+                    android:background="@drawable/edit_text_rounded_bg"
+                    android:paddingLeft="12dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#808080"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/saveDailyInput"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/save_today_s_data"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:backgroundTint="#FF6B9D"
+            app:cornerRadius="12dp"/>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#2A2A2A"
+            android:layout_marginVertical="24dp"/>
+
+        <!-- Reminder Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/daily_reminder"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"/>
+
+            <Button
+                android:id="@+id/btnSetReminder"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/set_time_8_00_pm"
+                android:textColor="#A78BFA"
+                app:strokeColor="#A78BFA"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

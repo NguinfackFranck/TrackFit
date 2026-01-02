@@ -13,6 +13,8 @@
  */
  package com.example.trackfit2;
 
+import android.util.Patterns;
+
 public class RegistrationValidator {
     // Validate if name is empty or null
     public ValidationResult validateName(String name) {
@@ -21,7 +23,17 @@ public class RegistrationValidator {
         }
         return new ValidationResult(true, null);
     }
-   //validate if name is empty, null and within the boundary
+    public ValidationResult validateEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            return new ValidationResult(false, "Insert email");
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            return new ValidationResult(false, "Insert a valid email");
+        }
+        return new ValidationResult(true, null);
+    }
+
+    //validate if name is empty, null and within the boundary
     public ValidationResult validateAge(String age) {
         if (age == null || age.trim().isEmpty()) {
             return new ValidationResult(false, "Insert age");
@@ -37,4 +49,14 @@ public class RegistrationValidator {
             return new ValidationResult(false, "Age must be a number");
         }
     }
+    public ValidationResult validatePassword(String password) {
+        if (password == null || password.trim().isEmpty()) {
+            return new ValidationResult(false, "Insert password");
+        }
+        if (password.length() < 6) {
+            return new ValidationResult(false, "Password must be at least 6 characters");
+        }
+        return new ValidationResult(true, null);
+    }
 }
+
