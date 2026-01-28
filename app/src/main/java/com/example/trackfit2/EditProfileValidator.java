@@ -121,7 +121,7 @@ public class EditProfileValidator {
         try {
             float weightValue = Float.parseFloat(weight);
             if (weightValue < 20 || weightValue > 300) {
-                return new ValidationResult(false, "Weight must be between 20 and 300");
+                return new ValidationResult(false, "Weight must be between 20 and 300 kg");
             }
             return new ValidationResult(true, null);
         } catch (NumberFormatException e) {

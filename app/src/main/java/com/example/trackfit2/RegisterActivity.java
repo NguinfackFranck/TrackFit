@@ -46,7 +46,6 @@ package com.example.trackfit2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -364,7 +363,7 @@ public class RegisterActivity extends AppCompatActivity {
         String uid = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
 
         // Save demographic data locally
-        prefsHelper.saveAgeandName(name, age);
+        prefsHelper.saveAgeAndName(name, age);
 
         // Navigate to physical profile completion
         startActivity(new Intent(this, PersonnalInformationActivity.class));

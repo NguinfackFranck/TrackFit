@@ -64,7 +64,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     @NonNull
     @Override
     public HistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        var  view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_history, parent, false);
         return new HistoryViewHolder(view);
     }
@@ -85,7 +85,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
         if (cursor != null && cursor.moveToPosition(position)) {
             // Format date
-            String dateStr = cursor.getString(cursor.getColumnIndexOrThrow(FitnessDatabaseHelper.COLUMN_DATE));
+            var dateStr = cursor.getString(cursor.getColumnIndexOrThrow(FitnessDatabaseHelper.COLUMN_DATE));
             try {
                 Date date = dbDateFormat.parse(dateStr);
                 holder.dateTextView.setText(displayDateFormat.format(date));

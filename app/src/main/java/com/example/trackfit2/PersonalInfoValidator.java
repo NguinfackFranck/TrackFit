@@ -53,7 +53,7 @@ public class PersonalInfoValidator {
 
     public ValidationResult validateGender(int selectedGenderId) {
         if (selectedGenderId == -1) {
-            return new ValidationResult(false, "Please select a gender");
+            return new ValidationResult(false, "Please select your gender");
         }
         return new ValidationResult(true, null);
     }

@@ -205,7 +205,7 @@ public class FirebaseSyncService {
 
                         // Persist to local SharedPreferences
                         PrefsHelper prefs = new PrefsHelper(context);
-                        prefs.saveAgeandName(name, age);
+                        prefs.saveAgeAndName(name, age);
                         prefs.saveUserData(height, weight, gender);
                         prefs.setSetupComplete(true);
 

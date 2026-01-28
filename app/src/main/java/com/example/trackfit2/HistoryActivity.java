@@ -47,7 +47,7 @@ public class HistoryActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.historyRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        // Load data from database
+        // Loads the data from database
         loadHistoryData();
     }
     /**
@@ -59,7 +59,7 @@ public class HistoryActivity extends AppCompatActivity {
      * - Passes cursor to adapter for display
      */
     private void loadHistoryData() {
-        Cursor cursor = dbHelper.getHistory();
+        var cursor = dbHelper.getHistory();
         adapter.setCursor(cursor);
     }
     /**

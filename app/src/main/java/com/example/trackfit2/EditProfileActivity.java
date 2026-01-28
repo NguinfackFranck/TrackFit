@@ -347,7 +347,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
             // Persist data locally
             prefsHelper.saveUserData(height, weight, gender);
-            prefsHelper.saveAgeandName(name, age);
+            prefsHelper.saveAgeAndName(name, age);
 
             // Sync to cloud
             FirebaseSyncService syncService = new FirebaseSyncService(this);

@@ -70,7 +70,7 @@ public class PrefsHelper {
      * - Uses atomic apply() for persistence
      */
 
-    public void saveAgeandName(String name, int age) {
+    public void saveAgeAndName(String name, int age) {
         prefs.edit()
                 .putString(KEY_NAME, name)
                 .putInt(KEY_AGE, age)

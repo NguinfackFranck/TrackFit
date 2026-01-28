@@ -188,7 +188,7 @@ public class DailyDataValidator {
 
             int totalMinutes = hours * 60 + minutes;
             if (totalMinutes > MAX_ACTIVE_MINUTES) {
-                return new ValidationResult(false, "Exceeds 24 hours");
+                return new ValidationResult(false, " Time Exceeds 24 hours");
             }
 
             return new ValidationResult(true, null);
