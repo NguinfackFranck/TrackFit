@@ -76,7 +76,7 @@ Testing (planned): JUnit, Robolectric
 
 Clone the repository:
 
-git clone https://github.com/your-username/fittrack.git
+git clone (https://github.com/NguinfackFranck/TrackFit)
 
 
 Open the project in Android Studio
